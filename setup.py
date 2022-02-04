@@ -71,6 +71,12 @@ class CMakeBuild(build_ext):
                 '-DCMAKE_C_COMPILER=/usr/bin/clang', '-DCMAKE_CXX_COMPILER=/usr/bin/clang++'
             ]
 
+        # NOTE(ycho): conditionally enable/disable cuda.
+        use_cuda = os.environ.get('USE_CUDA', False)
+        cmake_args += [
+                F'-DUSE_CUDA={use_cuda}'
+                ]
+
         if platform.system() == 'Darwin':
             cmake_args += ['-DMAC_PLATFORM=TRUE']
         else:
