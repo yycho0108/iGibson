@@ -159,6 +159,7 @@ class InteractiveIndoorScene(StaticIndoorScene):
                         continue
                     # This object is not located in one of the selected rooms, skip
                     if self.load_room_instances is not None and \
+                            in_rooms is not None and
                             len(set(self.load_room_instances) & set(in_rooms)) == 0:
                         continue
 
