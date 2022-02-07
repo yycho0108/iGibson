@@ -158,9 +158,9 @@ class InteractiveIndoorScene(StaticIndoorScene):
                             category not in self.load_object_categories:
                         continue
                     # This object is not located in one of the selected rooms, skip
-                    if self.load_room_instances is not None and \
+                    if (self.load_room_instances is not None and
                             in_rooms is not None and
-                            len(set(self.load_room_instances) & set(in_rooms)) == 0:
+                            len(set(self.load_room_instances) & set(in_rooms)) == 0):
                         continue
 
                     category_path = get_ig_category_path(category)
