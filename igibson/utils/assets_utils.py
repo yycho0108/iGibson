@@ -249,7 +249,7 @@ def download_ig_dataset():
     #os.system(
     #    'tar -zxf /tmp/{} --strip-components=1 --directory {}'.format(file_name, igibson.ig_dataset_path))
     # NOTE(ycho): chain wget + tar
-    cmd='wget -q0- --retry-connrefused --tries=5 --timeout=5 {} | tar xvz - --strip-components=1 -C {}'
+    cmd='wget -qO- --retry-connrefused --tries=5 --timeout=5 {} | tar xvz --strip-components=1 -C {}'
     os.system(cmd.format(file_name, igibson.ig_dataset_path))
     # These datasets come as folders; in these folder there are scenes, so --strip-components are needed.
 
